@@ -1,0 +1,14 @@
+from stt import speech_to_text
+from llm import chat_with_groq
+from tts import text_to_speech
+
+def voice_pipeline(audio):
+    user_text = speech_to_text(audio)
+
+    if user_text == "":
+        return "I could not hear you properly.", None
+
+    ai_text = chat_with_groq(user_text)
+    ai_audio = text_to_speech(ai_text)
+
+    return ai_text, ai_audio
