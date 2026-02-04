@@ -1,0 +1,16 @@
+import gradio as gr
+from pipeline import voice_pipeline
+
+app = gr.Interface(
+    fn=voice_pipeline,
+    inputs=gr.Audio(type="filepath", label="🎤 Speak"),
+    outputs=[
+        gr.Textbox(label="🤖 AI Response"),
+        gr.Audio(label="🔊 AI Voice")
+    ],
+    title="🎙️ Voice-to-Voice AI (100% Free & Open Source)",
+    description="Whisper + Groq LLaMA-3 + Google TTS + Gradio"
+)
+
+if __name__ == "__main__":
+    app.launch()
