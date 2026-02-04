@@ -1,0 +1,6 @@
+gradio
+torch
+torchaudio
+git+https://github.com/openai/whisper.git
+groq
+gTTS
