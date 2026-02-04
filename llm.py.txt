@@ -1,0 +1,15 @@
+import os
+from groq import Groq
+
+client = Groq(
+    api_key=os.environ.get("GROQ_API_KEY")
+)
+
+def chat_with_groq(text):
+    response = client.chat.completions.create(
+        model="llama-3.3-70b-versatile",
+        messages=[
+            {"role": "user", "content": text}
+        ]
+    )
+    return response.choices[0].message.content
